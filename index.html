@@ -982,7 +982,7 @@
                         <div style="font-size: 0.875rem; color: var(--text-secondary);">
                             <div>• TurningPointY2：标准响应模式</div>
                             <div>• TurningPointZ1：深度思考模式</div>
-                            <div id="v5-model-info" style="display: none;">• TurningPointV5：量子超算模式 (需邀请码)</div>
+                            <div id="v5-model-info" style="display: none;">• TurningPointV5：最新算法模型（测试） (需邀请码)</div>
                             <div>• 深度思考和V5模式不能同时开启</div>
                         </div>
                     </div>
@@ -1002,7 +1002,6 @@
                         </div>
                         <div style="font-size: 0.875rem; color: var(--v5-color);">
                             • 点击右上角🤖图标切换<br>
-                            • 注意：V5模式下AI将返回错误提示
                         </div>
                     </div>
                 </div>
@@ -1024,11 +1023,11 @@
                 <div class="setting-item">
                     <label class="setting-label">开发日志</label>
                     <div class="development-log">
-                        <div class="log-entry"><span class="log-date">2025.01.15</span> - TurningPointV5量子模型架构完成</div>
-                        <div class="log-entry"><span class="log-date">2024.12.20</span> - 深度思考模式Z1发布</div>
-                        <div class="log-entry"><span class="log-date">2024.11.05</span> - 多语言系统上线</div>
-                        <div class="log-entry"><span class="log-date">2024.10.10</span> - 代码格式化引擎开发完成</div>
-                        <div class="log-entry"><span class="log-date">2024.09.01</span> - TurningPointY2标准版发布</div>
+                        <div class="log-entry"><span class="log-date">2025.11.15</span> - TurningPointV5最新算法模型（目前维修中）</div>
+                        <div class="log-entry"><span class="log-date">2025.11.02</span> - 深度思考模式Z1发布</div>
+                        <div class="log-entry"><span class="log-date">2024.11.01</span> - 多语言系统上线，（目前维修中）</div>
+                        <div class="log-entry"><span class="log-date">2025.10.28</span> - 代码格式化引擎开发完成</div>
+                        <div class="log-entry"><span class="log-date">2025.10.25</span> - TurningPointY2标准版发布</div>
                     </div>
                 </div>
                 
@@ -1632,7 +1631,7 @@
             if (state.v5Enabled) {
                 setTimeout(() => {
                     addAIMessage(
-                        '<div class="error-message">⚠️ TurningPointV5量子模型正在维护中，暂时无法提供服务。请切换回标准模式使用。</div>',
+                        '<div class="error-message">⚠️ TurningPointV5内测模型正在维护中，暂时无法提供服务。请切换回标准模式使用。</div>',
                         null,
                         null,
                         true
@@ -1711,10 +1710,10 @@
         }
 
         function getSystemPrompt() {
-            let systemPrompt = '你是Turning Point，由临界点科技完全自研开发的AI助手。';
+            let systemPrompt = '你是Turning PointAI，由临界点科技完全自研开发的AI助手。';
             
             if (state.v5Enabled) {
-                systemPrompt = '你是TurningPointV5，临界点科技基于量子计算架构开发的超级AI模型。';
+                systemPrompt = '你是TurningPointV5，临界点科技基于算法计算架构开发的超级AI模型。';
             }
             
             // 添加模式提示
@@ -1742,7 +1741,7 @@
             if (state.settings.language === 'en') {
                 systemPrompt += ' Please respond in English.';
             } else {
-                systemPrompt += ' 请用中文回复。';
+                systemPrompt += ' 请根据用户的语言进行相对应的语言回复回复。';
             }
             
             return systemPrompt;
@@ -1919,7 +1918,7 @@
         
         function getModeName(mode) {
             const names = {
-                'general': '普通对话',
+                'general': '正常对话',
                 'programming': '编程',
                 'psychology': '心理',
                 'inspiration': '灵感',
@@ -1957,7 +1956,7 @@
             state.v5Enabled = !state.v5Enabled;
             updateModelDisplay();
             
-            showToast(state.v5Enabled ? '已切换到TurningPointV5量子模型' : '已切换回标准模式');
+            showToast(state.v5Enabled ? '已切换到TurningPointV5模型' : '已切换回标准模式');
         }
         
         function stopGeneration() {
@@ -2037,7 +2036,7 @@
             
             if (state.v5Enabled) {
                 state.currentModel = 'TurningPointV5';
-                modelDisplay.textContent = 'TurningPointV5 (量子超算模式)';
+                modelDisplay.textContent = 'TurningPointV5 (最新超算模式)';
                 modelIndicator.textContent = 'TurningPointV5';
                 modelIndicator.className = 'model-indicator v5-indicator';
                 document.getElementById('deep-thinking-btn').disabled = true;
